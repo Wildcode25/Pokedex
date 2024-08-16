@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    gap: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(85, 85, 85);
+}
+label{
+    display: block;
+}
+.formContainer form{
+    display: flex;
+    margin: 50% 0;
+    gap: 20px;
+    flex-direction: column;
+    background-color: chocolate;
+    padding: 20px 50px;
+    width: 350px;
+}

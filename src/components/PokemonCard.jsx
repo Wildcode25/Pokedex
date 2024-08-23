@@ -7,7 +7,7 @@ export const PokemonCard = ({ pokemon }) => {
     
     <div className="pokemonCard">
       <div className="pokemonImage">
-        <img src="" alt="" />
+        <img src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} alt="" />
       </div>
       <div>
         {}

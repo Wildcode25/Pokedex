@@ -5,7 +5,7 @@ import { TypeFilter } from "./TypeFilter.jsx";
 export const Filter = () => {
   const { data, handleChange } = useFormData();
   const { setFilters } = useFilter();
-  const handleChangeFilterName = (e) => {
+  const handleFilterByName = (e) => {
     e.preventDefault();
 
     setFilters((prevState) => {
@@ -38,7 +38,7 @@ export const Filter = () => {
             name="pokemonName"
             type="text"
           />
-          <SearchButton handle={handleChangeFilterName} />
+          <SearchButton handle={handleFilterByName} />
         </label>
       </form>
       <TypeFilter />

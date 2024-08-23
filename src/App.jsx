@@ -1,19 +1,15 @@
-import { UserManagement } from "./components/UserManagement";
-import { UserProvider } from "./context/user.jsx";
 import { MessageProvider } from "./context/message.jsx";
 import { Notification } from "./components/Notification.jsx";
 import { FilterProvider } from "./context/filter.jsx";
+import {Home} from './components/Home.jsx'
 function App() {
   return (
-    <UserProvider>
       <MessageProvider>
         <FilterProvider>
           <Notification />
-
-          <UserManagement />
+          <Home />
         </FilterProvider>
       </MessageProvider>
-    </UserProvider>
   );
 }
 

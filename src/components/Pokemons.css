@@ -1,0 +1,31 @@
+
+.pokemonContainer .load{
+    scale: 2;
+}
+.pokemonCard{
+    width: 160px;
+    height: 210px;
+    background-color: #414446;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+
+}
+.pokemonImage{
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+}
+.types{
+    list-style: none;
+    display: flex;
+    gap: 3px;
+    padding: 0;
+
+}
+.types li{
+    padding: 10px;
+    background-color: rgb(29, 28, 28);
+    border-radius: 8px;
+}

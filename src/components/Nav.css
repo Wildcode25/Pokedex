@@ -1,7 +1,9 @@
 
 nav ul{
-    padding:0;
-    background-color: rgb(25, 26, 27);
+    margin: 10px auto;
+    padding: 0;
+    display: flex;
+    background-color: #191a1b;
     height: 50px;
     width: 660px;
     gap:1px;
@@ -14,7 +16,7 @@ nav ul{
 
 }
 .navItem{
-    background-color: rgb(65, 68, 70);
+    background-color: #414446;
     text-align: center;
     display: flex;
     align-items: center;

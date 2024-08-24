@@ -1,15 +1,14 @@
-import { MessageProvider } from "./context/message.jsx";
-import { Notification } from "./components/Notification.jsx";
 import { FilterProvider } from "./context/filter.jsx";
-import {Home} from './components/Home.jsx'
+import { useState } from "react";
+import {Nav} from './components/Nav.jsx'
+import { Layout } from "./components/Layout.jsx";
 function App() {
+  const [page, setPage] = useState(1);
   return (
-      <MessageProvider>
-        <FilterProvider>
-          <Notification />
-          <Home />
-        </FilterProvider>
-      </MessageProvider>
+      <FilterProvider>
+        <Nav setPage={setPage} />
+        <Layout page={page} />
+      </FilterProvider>
   );
 }
 

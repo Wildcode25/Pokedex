@@ -10,7 +10,6 @@ export const useFilter = ()=>{
             const types = pokemon.types.map((typeObj)=>{
                 return typeObj.type.name
             })
-            console.log(filters.name, filters.types.length)
             if(filters.name) return pokemon.name === filters.name;
             return filters.types.length === 0 || filters.types.every(type=>types.includes(type))
              

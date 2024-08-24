@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { useMessage } from "./message.js";
 export const useFormData = ()=>{
-    const {showSuccessMessage, showErrorMessage} = useMessage()
     const [data, setData] = useState({
         name: "",
         email: "",

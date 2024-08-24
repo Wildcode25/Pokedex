@@ -1,20 +1,40 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
+import { PokemonService } from "../service/pokemonService"
+import { useFilter } from "../hooks/filter.js";
+
+
 export const usePokemons = ()=>{
+    const { setFilters } = useFilter();
+    const [types, setTypes] = useState(null);
     const [pokemons, setPokemons] = useState(null)
     useEffect(()=>{
-        axios.get('https://pokeapi.co/api/v2/pokemon/').then((response)=>response.data).then(data=>{
-            const {results} = data;
-            console.log(results)
-            const promises = results.map(async result=>{
-                return await axios.get(result.url)
-            })
-            Promise.all(promises).then(responses=>{
-                return responses.map(response=>{
-                    return response.data
-                })
-            }).then(gettedPokemons=>setPokemons(gettedPokemons))
-        })
+        PokemonService.getPokemons().then(gettedPokemons=>setPokemons(gettedPokemons))
     }, [])
-    return {pokemons}
+    useEffect(()=>{
+        PokemonService.getPokemonTypes().then(({ results }) => {
+            setTypes(results);
+          });
+    }, [])
+    const toggleType = ({ target }) => {
+        const name = target.innerText;
+    
+        const inputElement = document.getElementById(target.htmlFor);
+    
+        if (!inputElement.checked)
+           setFilters((prevState) => {
+            return {
+              types: prevState.types.concat(name),
+            };
+          });
+        else setFilters((prevState) => {
+          const newFilters = {
+            types: prevState.types.filter((type) => {
+              return type !== name;
+            }),
+          };
+          
+          return newFilters
+        });
+      };
+    return {pokemons, types, toggleType}
 }

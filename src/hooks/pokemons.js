@@ -9,12 +9,11 @@ export const usePokemons = ()=>{
     const [pokemons, setPokemons] = useState(null)
     useEffect(()=>{
         PokemonService.getPokemons().then(gettedPokemons=>setPokemons(gettedPokemons))
-    }, [])
-    useEffect(()=>{
         PokemonService.getPokemonTypes().then(({ results }) => {
-            setTypes(results);
-          });
+          setTypes(results);
+        });
     }, [])
+    
     const toggleType = ({ target }) => {
         const name = target.innerText;
     

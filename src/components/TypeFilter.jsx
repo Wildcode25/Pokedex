@@ -4,7 +4,10 @@ export const TypeFilter = () => {
   const {types, toggleType} = usePokemons()  
   
   return (
+    <>
     <div className="formStyle">
+    <h3 style={{width: '100%', margin: '0'
+     }}>Filter by type:</h3>
       {types ? (
         types.map((type) => {
           return (
@@ -31,5 +34,6 @@ export const TypeFilter = () => {
       )}
       :
     </div>
+    </>
   );
 };

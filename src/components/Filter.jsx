@@ -23,14 +23,16 @@ export const Filter = () => {
         justifyContent: 'center',
         background: "#414446",
         width: "660px",
-        height: "350px",
+        height: "360px",
         padding: "10px",
         borderRadius: "20px",
+       
       }}
     >
+      
       <form>
+      <h3>Filter by name: </h3>
         <label htmlFor="pokemonName" >
-          Name:{" "}
           <input
           style={{margin: '5px'}}
             value={data.pokemonName}

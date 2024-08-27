@@ -7,9 +7,9 @@ export const Pokedex = ()=>{
     const {pokemons} = usePokemons()
     const {filterPokemons} = useFilter()
     const filteredPokemons = filterPokemons(pokemons)
-    console.log(filteredPokemons)
     return <article>
     <Filter/>
+   
     <Pokemons pokemons={filteredPokemons}/>
     </article> 
 }

@@ -3,7 +3,7 @@ import { useFormData } from "../hooks/formData.js";
 import { SearchButton } from "./SearchButton.jsx";
 import { TypeFilter } from "./TypeFilter.jsx";
 export const Filter = () => {
-  const { data, handleChange } = useFormData();
+  const { data } = useFormData();
   const { setFilters } = useFilter();
   const handleFilterByName = (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ export const Filter = () => {
     setFilters((prevState) => {
       return {
         ...prevState,
-        name: data.pokemonName,
+        name: e.target.value,
       };
     });
     
@@ -36,7 +36,7 @@ export const Filter = () => {
           <input
           style={{margin: '5px'}}
             value={data.pokemonName}
-            onChange={handleChange}
+            onChange={handleFilterByName}
             name="pokemonName"
             type="text"
           />

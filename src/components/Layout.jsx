@@ -1,4 +1,4 @@
-import './Layout.css'
+import '../styles/layout.css'
 import { Pokedex } from './Pokedex.jsx'
 import { PokemonForm } from './PokemonForm.jsx'
 export const Layout = ({page})=>{

@@ -11,6 +11,7 @@ export const useFilter = ()=>{
           pokemons=results
         } 
         else pokemons = await PokemonService.getAllPokemons()
+        console.log(filters.current.name)
         const filteredPokemons = pokemons.filter((pokemon)=>{
             const types = pokemon.types.map((typeObj)=>{
                 return typeObj.type.name

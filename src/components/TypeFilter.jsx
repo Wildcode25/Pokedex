@@ -1,4 +1,4 @@
-import "./TypeForm.css";
+import "../styles/TypeForm.css";
 import { usePokemons } from "../hooks/pokemons.js";
 import { useFilter } from "../hooks/filter.js";
 export const TypeFilter = ({setLoading}) => {
@@ -9,7 +9,7 @@ export const TypeFilter = ({setLoading}) => {
     const name = target.innerText;
 
     const inputElement = document.getElementById(target.htmlFor);
-
+    filters.current.name =''
     if (!inputElement.checked) {
       filters.current.types = filters.current.types.concat(name);
     } else {

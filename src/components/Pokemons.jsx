@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PokemonCard } from "./PokemonCard.jsx";
-import "./Pokemons.css";
+import "../styles/Pokemons.css";
 import { usePokemons } from "../hooks/pokemons.js";
 export const Pokemons = ({loading, setLoading}) => {
   const [offset, setOffset] = useState(0);

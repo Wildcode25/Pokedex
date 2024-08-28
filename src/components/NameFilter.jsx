@@ -2,16 +2,29 @@ import { SearchButton } from "./SearchButton.jsx";
 import { useFormData } from "../hooks/formData.js";
 import { useFilter } from "../hooks/filter.js";
 import { usePokemons } from "../hooks/pokemons.js";
+import debounce from "just-debounce-it";
+import { useCallback } from "react";
 export const NameFilter = ({setLoading})=>{
     const {data} = useFormData()
-    const {filterPokemons}=useFilter()
+    const {filterPokemons, filters}=useFilter()
     const {setPokemons} = usePokemons({setLoading})
-    const handleFilterByName = async (e) => {
-        e.preventDefault();
+    const filterByName = async ()=>{
         setLoading(true)
         const filteredPokemons = await filterPokemons()
-        setLoading(false)
         setPokemons(filteredPokemons)
+        setLoading(false)
+    }
+    const debouncedFilterByName = useCallback(
+        debounce(filterByName, 300)
+    , [filterByName])
+    const handleFilterByName = (e) => {
+        e.preventDefault();
+        
+        filters.current = {
+            name: e.target.value,
+            types: []
+        }
+        debouncedFilterByName()
         
       };
     return <form>
@@ -24,7 +37,6 @@ export const NameFilter = ({setLoading})=>{
           name="pokemonName"
           type="text"
         />
-        <SearchButton handle={handleFilterByName} />
       </label>
     </form>
 }

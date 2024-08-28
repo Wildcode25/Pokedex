@@ -1,4 +1,4 @@
-import './Nav.css'
+import '../styles/nav.css'
 export const Nav = ({setPage})=>{
     return <nav>
         <ul>

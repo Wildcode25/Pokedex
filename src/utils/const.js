@@ -1,9 +1,2 @@
-export const USER_ACTIONS_TYPES = {
-    LOGOUT: 'LOGOUT_USER',
-    LOGIN: 'LOGIN_USER' 
-}
-export const MESSAGE_ACTIONS_TYPES = {
-    SEND_SUCCESS_MESSAGE: 'SEND_SUCCESS_MESSAGE',
-    SEND_ERROR_MESSAGE: 'SEND_ERROR_MESSAGE',
-    ÇLOSE_MODAL: 'CLOSE_MODAL'
-}
+export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
+

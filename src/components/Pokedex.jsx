@@ -3,13 +3,11 @@ import { usePokemons } from "../hooks/pokemons.js"
 import { Filter } from "./Filter.jsx"
 import { Pokemons } from "./Pokemons.jsx"
 import './Pokedex.css'
+import { useLoading } from "../hooks/useLoading.js"
 export const Pokedex = ()=>{
-    const {pokemons} = usePokemons()
-    const {filterPokemons} = useFilter()
-    const filteredPokemons = filterPokemons(pokemons)
+    const {loading, setLoading} = useLoading()
     return <article>
-    <Filter/>
-   
-    <Pokemons pokemons={filteredPokemons}/>
+    <Filter setLoading={setLoading}/>
+    <Pokemons setLoading={setLoading} loading={loading}/>
     </article> 
 }

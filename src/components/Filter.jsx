@@ -1,21 +1,7 @@
-import { useFilter } from "../hooks/filter.js";
-import { useFormData } from "../hooks/formData.js";
-import { SearchButton } from "./SearchButton.jsx";
+import { NameFilter } from "./NameFilter.jsx";
 import { TypeFilter } from "./TypeFilter.jsx";
-export const Filter = () => {
-  const { data } = useFormData();
-  const { setFilters } = useFilter();
-  const handleFilterByName = (e) => {
-    e.preventDefault();
+export const Filter = ({setLoading}) => {
 
-    setFilters((prevState) => {
-      return {
-        ...prevState,
-        name: e.target.value,
-      };
-    });
-    
-  };
   return (
     <div
       style={{
@@ -29,21 +15,8 @@ export const Filter = () => {
        
       }}
     >
-      
-      <form>
-      <h3>Filter by name: </h3>
-        <label htmlFor="pokemonName" >
-          <input
-          style={{margin: '5px'}}
-            value={data.pokemonName}
-            onChange={handleFilterByName}
-            name="pokemonName"
-            type="text"
-          />
-          <SearchButton handle={handleFilterByName} />
-        </label>
-      </form>
-      <TypeFilter />
+      <NameFilter setLoading={setLoading}/>
+      <TypeFilter setLoading={setLoading}/>
     </div>
   );
 };

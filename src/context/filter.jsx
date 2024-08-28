@@ -1,14 +1,13 @@
-import { createContext, useState } from "react"
+import { createContext, useRef } from "react"
 
 export const FilterContext = createContext()
 export const FilterProvider = ({children})=>{
-    const [filters, setFilters] = useState({
+    const filters = useRef({
         types: [],
         name: ''
     })
     return <FilterContext.Provider value={{
-        filters,
-        setFilters
+        filters
     }
     }>
         {children}

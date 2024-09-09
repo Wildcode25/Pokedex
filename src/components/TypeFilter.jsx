@@ -1,11 +1,20 @@
 import "../styles/TypeForm.css";
 import { usePokemons } from "../hooks/pokemons.js";
 import { useFilter } from "../hooks/filter.js";
+import { useCallback } from "react";
+import debounce from "just-debounce-it";
 export const TypeFilter = ({setLoading}) => {
   const { types, setPokemons } = usePokemons({setLoading});
   const {filterPokemons, filters}=useFilter()
-  const toggleType = async ({ target }) => {
+  const filterByType = async ()=>{
     setLoading(true)
+    const filteredPokemons = await filterPokemons();
+    setLoading(false)
+    setPokemons(filteredPokemons)
+  }
+  const debouncedFilterByType = useCallback(debounce(filterByType, 500))
+  const toggleType = async ({ target }) => {
+    
     const name = target.innerText;
 
     const inputElement = document.getElementById(target.htmlFor);
@@ -17,9 +26,7 @@ export const TypeFilter = ({setLoading}) => {
         return type !== name;
       });
     }
-    const filteredPokemons = await filterPokemons();
-    setLoading(false)
-    setPokemons(filteredPokemons)
+    debouncedFilterByType()
   };
   return (
     <>

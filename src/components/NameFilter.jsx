@@ -15,7 +15,7 @@ export const NameFilter = ({setLoading})=>{
         setLoading(false)
     }
     const debouncedFilterByName = useCallback(
-        debounce(filterByName, 300)
+        debounce(filterByName, 500)
     , [filterByName])
     const handleFilterByName = (e) => {
         e.preventDefault();

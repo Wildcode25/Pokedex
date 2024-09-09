@@ -7,8 +7,6 @@ nav ul{
     height: 50px;
     width: 660px;
     gap:1px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     list-style: none;
     border-radius: 15px;
     overflow: hidden;
@@ -24,7 +22,7 @@ nav ul{
     text-align: center;
     cursor: pointer;
     color: rgb(248, 246, 245);
-    
+    width: 100%;
     &:hover{
         background-color: rgb(154, 171, 185);
         color: black

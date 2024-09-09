@@ -9,14 +9,14 @@ export const Pokemons = ({loading, setLoading}) => {
     <>
       <div className="buttonContainer">
         <button onClick={getPreviousPokemons}>{"<<<"}</button>
-        <ul className="index">Paginacion</ul>
+        <ul className="index">Pagination</ul>
         <button onClick={getNextPokemons}>{">>>"}</button>
       </div>
       <article className="pokemonContainer">
         {loading ? (
           <div className="load"></div>
         ):(
-            pokemons.map((pokemon, index) => {
+            pokemons?.map((pokemon, index) => {
               return <PokemonCard key={`pokemon-${index}`} pokemon={pokemon} />;
             })
           ) }
